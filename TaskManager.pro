@@ -9,17 +9,21 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    basetask.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    basetask.h \
+    mainwindow.h \
+    modules/module.h \
+    modules/textmodule.h
 
 FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    TaskManager_en_150.ts
+    lang/TaskManager_en_150.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 
@@ -27,3 +31,6 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    lang/TaskManager_en_150.ts
